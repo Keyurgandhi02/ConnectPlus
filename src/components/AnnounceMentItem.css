@@ -1,0 +1,32 @@
+.toggle-btn {
+  background-color: #2e81f4;
+  color: white;
+  cursor: pointer;
+  padding: 20px;
+  margin: 10px;
+  width: 197vh;
+  border: none;
+  text-align: center;
+  outline: none;
+  font-size: 18px;
+}
+.active,
+.toggle-btn:hover {
+  background-color: rgb(28, 116, 230);
+}
+.content-show-parent {
+  height: 250px;
+}
+.content-parent {
+  height: 0px;
+  overflow: hidden;
+  transition: height ease 0.3s;
+}
+.content {
+  width: 192vh;
+  border: 1px solid black;
+  padding: 10px 18px;
+  margin: 20px;
+  border-radius: 5px;
+  background-color: #f1f1f1;
+}

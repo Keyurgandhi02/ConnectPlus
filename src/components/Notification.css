@@ -1,0 +1,43 @@
+.mainbody {
+  padding: 5px;
+  margin: 20px;
+  width: 100vw;
+  height: 70vh;
+  display: flex;
+  flex-direction: column;
+  background-size: cover;
+  background-repeat: no-repeat;
+  font-family: sans-serif;
+}
+
+.wrapperNotification {
+  background-image: linear-gradient(
+    to right top,
+    #5d55ff,
+    #5e49f7,
+    #603cf0,
+    #612de7,
+    #6319df
+  );
+  padding: 12px;
+  border-radius: 12px;
+  backdrop-filter: blur(3px);
+  width: 960px;
+  margin-bottom: 8px;
+}
+.notificationH2 {
+  color: white;
+  text-align: center;
+  font-size: 16px;
+  line-height: 24px;
+  font-weight: 600;
+  margin-top: 0;
+  margin-bottom: 4px;
+}
+
+.notificationPtag {
+  font-size: 13px;
+  margin-left: 15px;
+  line-height: 16px;
+  color: rgb(226, 222, 222);
+}

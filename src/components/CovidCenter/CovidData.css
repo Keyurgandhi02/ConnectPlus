@@ -1,0 +1,89 @@
+.mainHeaderCovid {
+  display: flex;
+  flex-direction: row;
+  font-size: 30px;
+  margin: 5px;
+  padding: 5px;
+  margin-bottom: 20px;
+  text-align: center;
+}
+
+.flex-item-left-covid {
+  padding: 10px;
+  flex: 50%;
+}
+
+.flex-item-right-covid {
+  background-color: dodgerblue;
+  padding: 10px;
+  flex: 50%;
+}
+
+@media (max-width: 800px) {
+  .flex-container {
+    flex-direction: column;
+  }
+}
+.covid-wrapper {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+.wrapperbtncovid {
+  transform: translate(-50%, -50%);
+}
+
+.acovid {
+  position: absolute;
+  top: 60%;
+  left: 45%;
+  display: block;
+  width: 230px;
+  height: 45px;
+  line-height: 40px;
+  font-size: 18px;
+  font-family: sans-serif;
+  text-decoration: none;
+  color: #333;
+  border: 2px solid #333;
+  letter-spacing: 2px;
+  text-align: center;
+  transition: all 0.35s;
+}
+
+.acovid span {
+  position: relative;
+  z-index: 2;
+}
+
+.acovid:after {
+  position: absolute;
+  content: "";
+  top: 0;
+  left: 0;
+  width: 0;
+  height: 100%;
+  background: #5d55ff;
+  transition: all 0.35s;
+}
+
+.acovid:hover {
+  color: #fff;
+}
+
+.acovid:hover:after {
+  width: 100%;
+}
+.bgcovid {
+  position: relative;
+  width: 100%;
+  max-width: 100%;
+}
+
+.covidimg {
+  width: 100%;
+  height: 100%;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}

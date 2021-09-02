@@ -1,0 +1,204 @@
+.post {
+  width: 100%;
+  margin-top: 15px;
+  border-radius: 15px;
+  background-color: white;
+  border: 1px solid rgb(206, 204, 204);
+  box-shadow: 0px 5px 7px -7px rgba(0, 0, 0, 0.75);
+}
+.post-top {
+  display: flex;
+  position: relative;
+
+  align-items: center;
+  padding: 15px;
+}
+.post-image > img {
+  width: 100%;
+}
+
+.post-avatar {
+  margin-right: 10px;
+}
+.post-topInfo > h3 {
+  margin-left: 8px;
+  font-size: medium;
+}
+.post-topInfo > p {
+  font-size: small;
+  color: gray;
+  margin-top: 5px;
+  margin-left: 8px;
+}
+.post-bottom {
+  margin-top: 10px;
+  margin-bottom: 10px;
+  padding: 15px 25px;
+}
+.post-options {
+  padding-top: 10px;
+  border-top: 1px solid lightgray;
+  display: flex;
+  justify-content: space-evenly;
+  font-size: medium;
+  color: gray;
+  cursor: pointer;
+  padding: 15px;
+}
+.post-option {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 5px;
+  flex: 1;
+}
+.post-option > p {
+  margin-left: 10px;
+}
+
+.post-option:hover {
+  background-color: #eff2f5;
+  border-radius: 10px;
+}
+.postMessage {
+  color: black;
+  font-size: 16px;
+}
+.containerModal {
+  border: 2px solid #dedede;
+  background-color: #f1f1f1;
+  border-radius: 5px;
+  padding: 10px;
+  margin: 10px 0;
+}
+
+.containerModal::after {
+  content: "";
+  clear: both;
+  display: table;
+}
+
+.containerModal .iconComment {
+  float: left;
+  max-width: 40px;
+  width: 100%;
+  margin-right: 20px;
+  border-radius: 50%;
+}
+
+.containerModal .iconComment.right {
+  float: right;
+  margin-left: 20px;
+  margin-right: 0;
+}
+
+.headerModal {
+  flex-grow: 1;
+  justify-content: flex-end;
+  display: flex;
+  position: sticky;
+}
+
+.commentBox {
+  margin-top: 40px;
+  max-width: 700px;
+  padding: 0px 0px 20px 0px;
+  border-radius: 20px;
+  background: #1b212d;
+}
+.postModal {
+  background: #fff;
+  padding: 20px;
+  border-radius: 20px;
+}
+.postBodyModal {
+  display: flex;
+}
+.postHeaderModal {
+  display: flex;
+  align-items: center;
+}
+.publishDateModal {
+  color: #787878;
+  margin-top: 25px;
+  margin-left: 15px;
+}
+.postDescModal {
+  margin-top: 15px;
+}
+
+.postTextModal {
+  font-weight: 400;
+  margin-left: 7px;
+}
+.descModal {
+  margin-right: 20px;
+}
+.commentModal {
+  padding: 10px;
+  margin: 20px 30px;
+  color: #fff;
+}
+.formModal {
+  margin-top: 20px;
+  display: flex;
+  flex-direction: column;
+}
+.postAuthorModal {
+  margin: 5px;
+  margin-top: 28px;
+  margin-bottom: 5px;
+}
+
+.commetPostModal {
+  font-family: "Darker Grotesque", sans-serif;
+  margin-top: 10px;
+  border-radius: 15px;
+  border: 1px solid #787878;
+  padding: 5px 5px 5px 10px;
+  height: 70px;
+  transition: 0.2s;
+  box-sizing: border-box;
+  resize: none;
+}
+.commetPostModal:focus {
+  outline: none;
+  border: 1px solid #5d55ff;
+}
+.commetPostModal::placeholder {
+  color: #bebebe;
+}
+.commetModalButton {
+  font-family: "Darker Grotesque", sans-serif;
+  color: #054231;
+  width: 160px;
+  color: #fff;
+  font-size: 18px;
+  padding: 10px;
+  padding-top: 7px;
+  transition: 0.5s;
+  cursor: pointer;
+  border-radius: 15px;
+  border: none;
+  background: #5d55ff;
+  margin-top: 20px;
+  box-shadow: 0px 5px 0px 0px #9692e2;
+}
+.commetModalButton:hover {
+  box-shadow: none;
+  transform: translateY(5px);
+  transition: all 0.1s linear;
+}
+.commetModalButton:focus {
+  outline: none;
+}
+.commetModalImage {
+  max-width: 50px;
+  width: 100%;
+  height: 100%;
+  background-color: lightskyblue;
+  margin-right: 15px;
+  margin-top: 10px;
+  margin-bottom: 10px;
+  border-radius: 50%;
+}
