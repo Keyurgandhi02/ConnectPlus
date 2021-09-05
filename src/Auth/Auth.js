@@ -58,6 +58,9 @@ function Auth() {
       try {
         setIsLoading(true);
         await login(enteredEmail, enteredPassword);
+        db.collection("userRegister").add({
+          email: enteredEmail,
+        });
         const authObject = {
           "Project-ID": process.env.REACT_APP_CHATENGINE_ID,
           "User-Name": enteredEmail,
@@ -80,7 +83,6 @@ function Auth() {
           username: enteredEmail,
           first_name: enteredEmail,
           secret: enteredPassword,
-          custom_json: { high_score: 2000 },
         };
         const response = {
           method: "POST",
@@ -93,9 +95,7 @@ function Auth() {
         axios(response).then(function (response) {
           JSON.stringify(response.data);
         });
-        db.collection("userRegister").add({
-          email: enteredEmail,
-        });
+
         localStorage.setItem("password", enteredPassword);
       } catch {
         commentShowHandler();

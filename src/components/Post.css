@@ -16,7 +16,13 @@
 .post-image > img {
   width: 100%;
 }
-
+.post-image > video {
+  width: 100%;
+}
+.post-image > object {
+  width: 100%;
+  height: 500px;
+}
 .post-avatar {
   margin-right: 10px;
 }

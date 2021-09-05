@@ -35,6 +35,9 @@ function Contact() {
   };
   return (
     <div className="contactcontainer">
+      <center>
+        <h2>Contact Us</h2>
+      </center>
       <form className="contactform" onSubmit={submitContactFormHandler}>
         <ul className="contactunorderlist">
           <li className="contactlist">

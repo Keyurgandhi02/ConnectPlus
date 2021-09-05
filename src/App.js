@@ -16,6 +16,7 @@ import CovidData from "./components/CovidCenter/CovidData";
 import SidebarAllPages from "./components/OtherPages/SidebarAllPages";
 import Home from "./components/Chat/Home";
 import Contact from "./components/OtherPages/Contact";
+import Friend from "./components/Friend";
 function App() {
   return (
     <>
@@ -127,6 +128,19 @@ function App() {
               <CovidData />
             </>
           </PrivateRoute>
+
+          <PrivateRoute path="/friends" exact>
+            <>
+              <Header />
+
+              <div className="app_body">
+                <Sidebar />
+
+                <Friend />
+              </div>
+            </>
+          </PrivateRoute>
+
           <PrivateRoute path="/logout" exact>
             <Logout />
           </PrivateRoute>

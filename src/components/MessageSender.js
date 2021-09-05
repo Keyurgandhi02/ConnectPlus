@@ -1,19 +1,34 @@
 import { Avatar } from "@material-ui/core";
-import { InsertEmoticon, PhotoLibrary, Videocam } from "@material-ui/icons";
+import { PhotoLibrary, Videocam } from "@material-ui/icons";
 import React, { useState } from "react";
 import { useAuth } from "../Store/AuthContext";
 import Loader from "../UI/Loader";
 import "./MessageSender.css";
+import FileCopyIcon from "@material-ui/icons/FileCopy";
 
 function MessageSender() {
   const [IsInput, setIsInput] = useState("");
-  const [IsUrl, setIsUrl] = useState("");
   const [Loading, setLoading] = useState(false);
   const { currentUser, avatarMaker } = useAuth();
   const username = avatarMaker(currentUser.email);
   const [file, setFile] = useState("");
 
+  const videoUploadHandler = (e) => {
+    if (e.target.files[0]) {
+      setFile(e.target.files[0]);
+    } else {
+      setFile("");
+    }
+  };
   const imageUploadHandler = (e) => {
+    if (e.target.files[0]) {
+      setFile(e.target.files[0]);
+    } else {
+      setFile("");
+    }
+  };
+
+  const documentUploadHandler = (e) => {
     if (e.target.files[0]) {
       setFile(e.target.files[0]);
     } else {
@@ -30,7 +45,6 @@ function MessageSender() {
       username,
     });
     setIsInput("");
-    setIsUrl("");
     setLoading(false);
     setFile("");
   };
@@ -44,14 +58,9 @@ function MessageSender() {
           <input
             required
             className="messageSender-input"
-            placeholder={`What's on your mind? `}
+            placeholder={`What do you want to talk about? `}
             value={IsInput}
             onChange={(e) => setIsInput(e.target.value)}
-          />
-          <input
-            placeholder="image URL(Optional)"
-            value={IsUrl}
-            onChange={(e) => setIsUrl(e.target.value)}
           />
 
           <button type="submit" onClick={handleSubmit}>
@@ -63,8 +72,9 @@ function MessageSender() {
         <div className="messageSender-option">
           <input
             type="file"
+            onChange={videoUploadHandler}
             id="fileUpload1"
-            accept="video"
+            accept="video/*"
             style={{ display: "none" }}
           />
           <Videocam style={{ color: "red" }} />
@@ -76,7 +86,7 @@ function MessageSender() {
             onChange={imageUploadHandler}
             type="file"
             id="fileUpload2"
-            accept="image"
+            accept="image/*"
             style={{ display: "none" }}
           />
           <PhotoLibrary style={{ color: "green" }}></PhotoLibrary>
@@ -84,8 +94,15 @@ function MessageSender() {
         </div>
 
         <div className="messageSender-option">
-          <InsertEmoticon style={{ color: "orange" }} />
-          <h3>Feeling/Activity</h3>
+          <input
+            onChange={documentUploadHandler}
+            type="file"
+            id="fileUpload3"
+            accept="application/pdf, application/vnd.ms-excel"
+            style={{ display: "none" }}
+          />
+          <FileCopyIcon style={{ color: "orange" }} />
+          <label htmlFor="fileUpload3">Documents</label>
         </div>
       </div>
     </div>

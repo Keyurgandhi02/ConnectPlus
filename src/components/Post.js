@@ -1,25 +1,29 @@
-import { Avatar } from "@material-ui/core";
-import {
-  ChatBubbleOutline,
-  ExpandMoreOutlined,
-  AccountCircle,
-  NearMe,
-  ThumbUp,
-} from "@material-ui/icons";
-import CloseIcon from "@material-ui/icons/Close";
 import React, { useEffect, useState } from "react";
+import { Avatar } from "@material-ui/core";
 import db, { fieldDec, fieldInc } from "../Auth/Firbase";
 import { useAuth } from "../Store/AuthContext";
 import Modal from "../UI/Modal";
 import "./Post.css";
+import {
+  ChatBubbleOutline,
+  ThumbDown,
+  PersonAdd,
+  ThumbUp,
+  Close,
+} from "@material-ui/icons";
 
 function Post({ profilePic, image, username, timestamp, message, postId }) {
   const [isModal, setIsModal] = useState(false);
   const [comments, setComments] = useState([]);
   const [comment, setComment] = useState("");
+  const [isVideo, setIsVideo] = useState(false);
+  const [isImage, setIsImage] = useState(false);
+  const [isDocument, setIsDocument] = useState(false);
   const { avatarMaker, currentUser } = useAuth();
   const [like, setLike] = useState(false);
-  const [likeCount, setLikeCount] = useState([]);
+  const [dislike, setDisLike] = useState(false);
+
+  // Comment Section
 
   const postComment = (e) => {
     e.preventDefault();
@@ -30,6 +34,7 @@ function Post({ profilePic, image, username, timestamp, message, postId }) {
     });
     setComment("");
   };
+
   useEffect(() => {
     if (postId) {
       db.collection("posts")
@@ -40,16 +45,19 @@ function Post({ profilePic, image, username, timestamp, message, postId }) {
           setComments(snapshot.docs.map((doc) => doc.data()));
         });
     }
-
-    if (postId) {
-      db.collection("posts")
-        .doc(postId)
-        .collection("likes")
-        .onSnapshot((snapshot) => {
-          setLikeCount(snapshot.docs.map((doc) => doc.data()));
-        });
-    }
   }, [postId]);
+  useEffect(() => {
+    if (image.includes(".mp4")) {
+      setIsVideo(true);
+    } else if (image.includes(".pdf" || ".docs" || "doc" || ".xlxs")) {
+      setIsDocument(true);
+    } else {
+      setIsImage(true);
+    }
+  }, [image]);
+
+  //Comment Show and Hide Handler
+
   const commentShowHandler = () => {
     setIsModal(true);
   };
@@ -57,6 +65,7 @@ function Post({ profilePic, image, username, timestamp, message, postId }) {
     setIsModal(false);
   };
 
+  //Like Handler
   const likeHandler = () => {
     const likesRef = db
       .collection("posts")
@@ -65,10 +74,28 @@ function Post({ profilePic, image, username, timestamp, message, postId }) {
       .doc("likes");
 
     setLike(!like);
+
     if (like === false) {
-      likesRef.set({ likes: fieldInc });
+      likesRef.set({ likes: fieldInc }, { merge: true });
     } else {
       likesRef.update({ likes: fieldDec });
+    }
+  };
+
+  //Dislike Handler
+  const disLikeHandler = () => {
+    const dislikesRef = db
+      .collection("posts")
+      .doc(postId)
+      .collection("Dislikes")
+      .doc("Dislikes");
+
+    setDisLike(!dislike);
+
+    if (dislike === false) {
+      dislikesRef.set({ Dislikes: fieldInc }, { merge: true });
+    } else {
+      dislikesRef.update({ Dislikes: fieldDec });
     }
   };
 
@@ -83,7 +110,7 @@ function Post({ profilePic, image, username, timestamp, message, postId }) {
               display: "flex",
             }}
           >
-            <CloseIcon
+            <Close
               onClick={commentHideHandler}
               style={{
                 cursor: "pointer",
@@ -151,36 +178,48 @@ function Post({ profilePic, image, username, timestamp, message, postId }) {
           <p className="postMessage">{message}</p>
         </div>
         <div className="post-image">
-          <img src={image} alt="" />
+          {isImage && <img src={image} alt="" />}
+          {isVideo && <video src={image} alt="" controls type="video/mp4" />}
+          {isDocument && (
+            <object data={image} type="application/pdf" title="pdf" />
+          )}
         </div>
         <div className="post-options">
           <div className="post-option" onClick={likeHandler}>
             {like && <ThumbUp style={{ color: "#e9103d" }} />}
             {!like && <ThumbUp />}
-            <p>Like</p>
+            {/* <p>Like</p> */}
 
-            {likeCount.map((likeData) =>
+            {/* {likeCount.map((likeData) =>
               likeData.likes === 0 ? (
                 <p></p>
               ) : (
                 <p key={likeData.id}>{likeData.likes}</p>
               )
-            )}
+            )} */}
           </div>
 
-          <div className="post-option">
+          <div className="post-option" onClick={disLikeHandler}>
+            {dislike && <ThumbDown style={{ color: "#e9103d" }} />}
+            {!dislike && <ThumbDown />}
+            {/* <p style={{ marginBottom: "3px" }}>Dislike</p> */}
+
+            {/* {dislikeCount.map((likeData) =>
+              likeData.Dislikes === 0 ? (
+                <p></p>
+              ) : (
+                <p style={{ marginBottom: "3px" }} key={likeData.id}>
+                  {likeData.Dislikes}
+                </p>
+              )
+            )} */}
+          </div>
+          <div className="post-option" onClick={commentShowHandler}>
             <ChatBubbleOutline />
-            <p onClick={commentShowHandler}>Comment</p>
           </div>
 
           <div className="post-option">
-            <NearMe />
-            <p>Share</p>
-          </div>
-
-          <div className="post-option">
-            <AccountCircle />
-            <ExpandMoreOutlined />
+            <PersonAdd />
           </div>
         </div>
       </div>

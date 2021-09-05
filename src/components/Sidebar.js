@@ -1,7 +1,7 @@
 import { EmojiFlags, LocalHospital, People } from "@material-ui/icons";
 import HomeIcon from "@material-ui/icons/Home";
 import HistoryIcon from "@material-ui/icons/History";
-import { Link, NavLink } from "react-router-dom";
+import { NavLink } from "react-router-dom";
 import "./Sidebar.css";
 import SidebarRow from "./SidebarRow";
 import ExitToAppIcon from "@material-ui/icons/ExitToApp";
@@ -18,7 +18,9 @@ const Sidebar = () => {
       <NavLink to="/allpages" activeClassName="sidebarRow_active">
         <SidebarRow title="Pages" Icon={EmojiFlags} />
       </NavLink>
-      <SidebarRow title="Friends" Icon={People} />
+      <NavLink to="/friends" activeClassName="sidebarRow_active">
+        <SidebarRow title="Friends" Icon={People} />
+      </NavLink>
 
       <NavLink to="/allposts" activeClassName="sidebarRow_active">
         <SidebarRow title="Your Posts" Icon={HistoryIcon} />
