@@ -4,7 +4,7 @@ const AnnounceMentItem = (props) => {
   const [isOpen, setIsOpen] = useState(false);
 
   return (
-    <div>
+    <>
       <button className="toggle-btn" onClick={() => setIsOpen(!isOpen)}>
         {props.label}
       </button>
@@ -18,7 +18,7 @@ const AnnounceMentItem = (props) => {
           <p style={{ wordWrap: "break-word" }}>{props.message}</p>
         </div>
       </div>
-    </div>
+    </>
   );
 };
 export default AnnounceMentItem;

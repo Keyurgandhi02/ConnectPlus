@@ -6,21 +6,24 @@
 }
 
 .ce-chat-list {
-  background-color: rgb(240, 240, 240) !important;
+  background-color: #fdfcfa !important;
 }
 
 .ce-chats-container {
-  background-color: rgb(240, 240, 240) !important;
+  background-color: #fdfcfa !important;
 }
 
 .ce-active-chat-card {
-  background-color: #cabcdc !important;
-  border: 4px solid #cabcdc !important;
+  background-color: #fdfcfa !important;
+  border: 2px solid rgba(119, 117, 117, 0.71) !important;
   border-radius: 0px !important;
+  width: 300px;
+  margin: 5px;
+  text-transform: uppercase;
 }
 
 .ce-chat-subtitle-text {
-  color: #595959 !important;
+  color: #1768ac !important;
 }
 
 .ce-chat-form-container {
@@ -29,33 +32,33 @@
 
 .ce-text-input {
   border-radius: 6px !important;
-  border: 1px solid #5d55ff !important;
+  border: 1px solid #2541b2 !important;
 }
 
 .ce-primary-button {
   border-radius: 6px !important;
-  background-color: #5d55ff !important;
+  background-color: #2541b2 !important;
   position: relative;
   bottom: 1px;
 }
 
 .ce-danger-button {
-  background-color: white !important;
+  background-color: #fdfcfa !important;
   border-radius: 22px !important;
 }
 
 .ce-settings {
-  background-color: rgb(240, 240, 240) !important;
+  background-color: #fdfcfa !important;
 }
 
 .ce-autocomplete-input {
   border-radius: 6px !important;
-  border: 1px solid #5d55ff !important;
+  border: 1px solid #2541b2 !important;
 }
 
 .ce-autocomplete-options {
   border-radius: 6px !important;
-  border: 1px solid #5d55ff !important;
+  border: 1px solid #2541b2 !important;
   background-color: white !important;
 }
 
@@ -73,7 +76,7 @@
   height: 100%;
   width: 100%;
   overflow: scroll;
-  background-color: rgb(240, 240, 240);
+  background-color: #fdfcfa;
 }
 
 .chat-title-container {
@@ -84,20 +87,25 @@
 
 .chat-title {
   text-align: center;
-  color: #5d55ff;
+  text-transform: uppercase;
+  color: #2541b2;
   font-weight: 800;
-  font-size: 24px;
+  font-size: 30px;
 }
 
 .chat-subtitle {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
   text-align: center;
-  color: #5d55ff;
+  color: #2541b2;
   font-weight: 600;
   font-size: 12px;
   padding-top: 4px;
 }
 
 .message-row {
+  margin-top: 25px;
   float: left;
   width: 100%;
   display: flex;
@@ -157,7 +165,7 @@
 .message-form-container {
   position: absolute;
   bottom: 0px;
-  width: calc(100% - 36px);
+  width: calc(100% - 16px);
   padding: 18px;
   background-color: rgb(240, 240, 240);
 }
@@ -165,7 +173,7 @@
 .message-form {
   overflow: hidden;
   border-radius: 6px;
-  border: 1px solid #5d55ff;
+  border: 1px solid #2541b2;
   background-color: white;
 }
 
@@ -218,10 +226,10 @@
 .wrapper {
   height: 100vh;
   width: 100%;
-  background: rgb(111, 51, 189);
+  background: #2541b2;
   background: linear-gradient(
     90deg,
-    rgba(117, 84, 160, 1) 7%,
+    rgb(90, 7, 199) 7%,
     rgba(117, 84, 160, 1) 17%,
     rgba(106, 95, 168, 1) 29%,
     rgba(99, 103, 174, 1) 44%,

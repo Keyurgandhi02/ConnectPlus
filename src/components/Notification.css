@@ -1,13 +1,14 @@
 .mainbody {
   padding: 5px;
   margin: 20px;
-  width: 100vw;
+  width: 75%;
   height: 70vh;
   display: flex;
   flex-direction: column;
   background-size: cover;
   background-repeat: no-repeat;
   font-family: sans-serif;
+  margin-left: 20em;
 }
 
 .wrapperNotification {

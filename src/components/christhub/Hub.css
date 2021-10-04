@@ -1,0 +1,9 @@
+.dropMenu {
+  margin-top: 15px;
+  height: 40px;
+  border: 1px solid;
+  border-radius: 20px;
+  display: block;
+  margin-left: 25em;
+  cursor: pointer;
+}

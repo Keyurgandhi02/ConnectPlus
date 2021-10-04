@@ -58,9 +58,7 @@ function Auth() {
       try {
         setIsLoading(true);
         await login(enteredEmail, enteredPassword);
-        db.collection("userRegister").add({
-          email: enteredEmail,
-        });
+
         const authObject = {
           "Project-ID": process.env.REACT_APP_CHATENGINE_ID,
           "User-Name": enteredEmail,
@@ -95,7 +93,9 @@ function Auth() {
         axios(response).then(function (response) {
           JSON.stringify(response.data);
         });
-
+        db.collection("userRegister").add({
+          email: enteredEmail,
+        });
         localStorage.setItem("password", enteredPassword);
       } catch {
         commentShowHandler();
@@ -183,10 +183,10 @@ function Auth() {
           align="center"
           onClick={switchAuthModeHandler}
         >
-          {isLogin ? "Create new account" : "Login with existing account"}
+          {isLogin ? "Create new account" : "Already have an account"}
         </button>
         <p className="note" align="center">
-          <Link to="/forgot">Forgot Password?</Link>
+          {isLogin && <Link to="/forgot">Forgot Password?</Link>}
         </p>
       </form>
       {isLoading && <Loader />}

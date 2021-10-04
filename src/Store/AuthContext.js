@@ -11,7 +11,9 @@ export function useAuth() {
 export function AuthProvider({ children }) {
   const [currentUser, setCurrentUser] = useState();
   const [loading, setLoading] = useState(true);
-  // const [progress, setIsProgress] = useState(0);
+
+  const [progress, setIsProgress] = useState(0);
+
   function signup(email, password) {
     return auth
       .createUserWithEmailAndPassword(email, password)
@@ -63,12 +65,10 @@ export function AuthProvider({ children }) {
     const storageRef = projectStorage.ref(`images/${file.name}`);
     storageRef.put(file).on(
       "state_changed",
-      // () => {
-      //   let percentage = Math.round(
-      //     (snap.bytesTransferred / snap.totalBytes) * 100
-      //   );
-      //   setIsProgress(percentage);
-      // },
+      (snap) => {
+        let percentage = (snap.bytesTransferred / snap.totalBytes) * 100;
+        setIsProgress(percentage);
+      },
       () => {
         alert("Error While Uploading File");
       },
@@ -106,6 +106,7 @@ export function AuthProvider({ children }) {
     updateEmail,
     updatePassword,
     avatarMaker,
+    progress,
   };
 
   return (

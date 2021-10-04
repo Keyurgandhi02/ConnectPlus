@@ -25,11 +25,7 @@ const Notification = () => {
     <div className="mainbody">
       {!isNotification.length && (
         <>
-          <span style={{ textAlign: "center", marginTop: "30px" }}>
-            {" "}
-            You Don't have any Notification Yet!
-          </span>
-          <center>
+          <div style={{ marginLeft: "13em" }}>
             <lottie-player
               src="https://assets8.lottiefiles.com/packages/lf20_1iNByG.json"
               background="transparent"
@@ -38,12 +34,22 @@ const Notification = () => {
               loop
               autoplay
             ></lottie-player>
-          </center>
+          </div>
+          <span
+            style={{
+              marginTop: "30px",
+              marginLeft: "14em",
+            }}
+          >
+            {" "}
+            you don't have any notification
+          </span>
         </>
       )}
 
       {isNotification.map((notification) => (
         <NotificationItem
+          key={notification.id}
           user={notification.data.username}
           message={notification.data.message}
         />

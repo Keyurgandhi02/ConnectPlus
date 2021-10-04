@@ -1,10 +1,11 @@
 #friend-list {
-  display: block;
-  margin-top: 60px;
-  margin-left: 100px;
+  display: flex;
+  margin-top: 100px;
+  margin-left: 20em;
   padding: 0;
-  width: 750px;
+  flex-direction: column;
   border-radius: 40px;
+  align-items: center;
   height: 100%;
   list-style-type: none;
 }
@@ -14,11 +15,9 @@
   margin: 10px;
   padding: 5px;
   width: 750px;
-  height: 70px;
+  height: 50px;
   background: #f1f2f5;
   border-bottom: 1px solid #ddd;
-  display: flex;
-  align-items: center;
 }
 
 .friend img {
@@ -27,29 +26,32 @@
   border-radius: 30px;
   border: 2px solid #aaa;
   object-fit: cover;
-  margin-left: 5px;
-  margin-right: 10px;
 }
 
 .friend .name {
-  margin-left: 10px;
+  float: left;
+  margin-top: 5px;
+  margin-left: 5px;
   font-size: 18px;
 }
-
-/* .friend.selected {
-  background: #43a047;
-  color: white;
-} */
 
 .friend.selected img {
   border-color: white;
 }
-.friend.friend.selected p {
-  margin-left: 300px;
+.titleConnect {
   color: blue;
+  margin-top: 6px;
+  margin-right: 5px;
   cursor: pointer;
   font-weight: 600;
+  float: right;
 }
 .friend:hover {
   background: #ddd;
+}
+@media (max-width: 750px) {
+  #friend-list {
+    flex-direction: column;
+    flex: 100%;
+  }
 }

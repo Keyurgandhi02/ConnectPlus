@@ -6,6 +6,7 @@ import "./Friend.css";
 function FriendItem() {
   const { currentUser, avatarMaker } = useAuth();
   const [isFriend, setIsFriend] = useState([]);
+  const [follow, SetFollow] = useState(false);
   const user = currentUser.email;
 
   const addFriendHandler = () => {
@@ -13,6 +14,7 @@ function FriendItem() {
       email: user,
       friends: isFriend,
     });
+    SetFollow(true);
   };
 
   useEffect(() => {
@@ -25,14 +27,19 @@ function FriendItem() {
 
   return (
     <>
-      {isFriend.map((friend) => (
-        <li className="friend selected" key={friend.id}>
-          <Avatar style={{ backgroundColor: "lightskyblue" }}>
-            {avatarMaker(friend.email)}
-          </Avatar>
-          <div className="name">{friend.email}</div>
-          <p onClick={addFriendHandler}>Connect</p>
-        </li>
+      {isFriend.map((friend, index) => (
+        <React.Fragment key={index}>
+          <li className="friend selected">
+            <Avatar style={{ backgroundColor: "lightskyblue", float: "left" }}>
+              {avatarMaker(friend.email)}
+            </Avatar>
+            <div className="name">{friend.email}</div>
+            <p onClick={addFriendHandler} className="titleConnect">
+              {!follow && "Connect"}
+              {follow && "Remove"}
+            </p>
+          </li>
+        </React.Fragment>
       ))}
     </>
   );

@@ -27,13 +27,7 @@ const UserPosts = () => {
   return (
     <div className="feed">
       {!posts.length && (
-        <span style={{ textAlign: "center", marginTop: "30px" }}>
-          {" "}
-          You Don't have any post Yet!
-        </span>
-      )}
-      {!posts.length && (
-        <center>
+        <div style={{ marginLeft: "12em" }}>
           <lottie-player
             src="https://assets8.lottiefiles.com/packages/lf20_1iNByG.json"
             background="transparent"
@@ -42,7 +36,15 @@ const UserPosts = () => {
             loop
             autoplay
           ></lottie-player>
-        </center>
+        </div>
+      )}
+      {!posts.length && (
+        <span
+          style={{ textAlign: "center", marginTop: "30px", marginLeft: "12em" }}
+        >
+          {" "}
+          You Don't have any post Yet!
+        </span>
       )}
       {posts.map((post) => (
         <>

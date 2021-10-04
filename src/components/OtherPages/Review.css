@@ -1,0 +1,106 @@
+#feedback {
+  width: 660px;
+  margin-left: 25em;
+  margin-top: 3em;
+  padding: 20px;
+  height: max-content;
+  border: solid 1px #f1f1f1;
+  background-color: #fdfcfa;
+  box-shadow: -10px 20px 40px rgba(0, 0, 0, 0.282);
+  border-radius: 20px;
+  overflow: hidden;
+}
+
+@media (max-width: 720px) {
+  #feedback {
+    max-width: 90%;
+  }
+}
+
+@media (max-width: 500px) {
+  #feedback {
+    padding: 10px;
+  }
+}
+
+.pinfo {
+  margin: 8px auto;
+  font-weight: bold;
+  line-height: 1.5;
+  color: #0d0d0d;
+}
+.form-group {
+  margin-bottom: 1rem;
+}
+
+.form-control {
+  display: block;
+  width: 100%;
+  padding: 0.5rem 0.75rem;
+  font-size: 1rem;
+  line-height: 1.25;
+  font-weight: bold;
+  color: #6c6262;
+  background-color: #fff;
+  background-image: none;
+  -webkit-background-clip: padding-box;
+  background-clip: padding-box;
+  border: 1px solid rgba(0, 0, 0, 0.15);
+  border-radius: 0.25rem;
+  -webkit-transition: border-color ease-in-out 0.15s,
+    -webkit-box-shadow ease-in-out 0.15s;
+  transition: border-color ease-in-out 0.15s,
+    -webkit-box-shadow ease-in-out 0.15s;
+  -o-transition: border-color ease-in-out 0.15s, box-shadow ease-in-out 0.15s;
+  transition: border-color ease-in-out 0.15s, box-shadow ease-in-out 0.15s;
+  transition: border-color ease-in-out 0.15s, box-shadow ease-in-out 0.15s,
+    -webkit-box-shadow ease-in-out 0.15s;
+}
+
+.form-control::-ms-expand {
+  background-color: transparent;
+  border: 0;
+}
+
+.form-control:focus {
+  color: #696060;
+  background-color: #fff;
+  border-color: #5cb3fd;
+  outline: none;
+}
+
+select.form-control:not([size]):not([multiple]) {
+  height: calc(2.25rem + 2px);
+}
+
+.input-group {
+  position: relative;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  width: 100%;
+}
+
+.input-group .form-control {
+  position: relative;
+  z-index: 2;
+  -webkit-box-flex: 1;
+  -webkit-flex: 1 1 auto;
+  -ms-flex: 1 1 auto;
+  flex: 1 1 auto;
+  width: 1%;
+  margin-bottom: 0;
+}
+.btn {
+  background: #2541b2;
+  color: white;
+  font-weight: 700;
+  cursor: pointer;
+  font-size: 1.2rem;
+  border: none;
+  width: 100%;
+  height: 40px;
+  border-radius: 5px;
+  margin-top: 1.3em;
+}

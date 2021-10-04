@@ -35,10 +35,11 @@ function Contact() {
   };
   return (
     <div className="contactcontainer">
-      <center>
-        <h2>Contact Us</h2>
-      </center>
       <form className="contactform" onSubmit={submitContactFormHandler}>
+        <center>
+          {" "}
+          <h2>Conatct Us</h2>
+        </center>
         <ul className="contactunorderlist">
           <li className="contactlist">
             <label htmlFor="name" className="contactlabel">

@@ -2,6 +2,7 @@ import { useEffect, useRef, useState } from "react";
 import { useHistory } from "react-router";
 import { useAuth } from "../Store/AuthContext";
 import Loader from "../UI/Loader";
+import visibility from "../../src/assets/images/visibility.svg";
 import "./UserProfile.css";
 const UserProfile = () => {
   const history = useHistory();
@@ -9,6 +10,7 @@ const UserProfile = () => {
   const passwordRef = useRef();
   const [isRendered, setIsRendered] = useState(false);
   const [error, setError] = useState("");
+  const [show, setShow] = useState(false);
   const [Loading, setIsLoading] = useState(false);
 
   useEffect(() => {
@@ -17,6 +19,10 @@ const UserProfile = () => {
     }, 800);
     return () => clearTimeout(timer);
   }, []);
+
+  const showpasswordHandler = () => {
+    setShow(!show);
+  };
 
   function updatePasswordHandler(e) {
     e.preventDefault();
@@ -46,9 +52,9 @@ const UserProfile = () => {
   ) : (
     <div className="main_Container">
       <p className="user_profile" align="center">
-        Edit Your Profile
+        Your Profile
       </p>
-      <p className="user_profile_p">Note : You can only change the password</p>
+      <p className="user_profile_p">Note : You can change the password only </p>
 
       <form className="User_Form" onSubmit={updatePasswordHandler}>
         <input
@@ -65,9 +71,15 @@ const UserProfile = () => {
           id="password"
           ref={passwordRef}
           className="user_Password"
-          type="password"
+          type={show ? "string " : "password"}
           align="center"
           placeholder="Password"
+        />
+        <img
+          src={visibility}
+          alt=""
+          style={{ marginLeft: "10px", cursor: "pointer" }}
+          onClick={showpasswordHandler}
         />
 
         <button

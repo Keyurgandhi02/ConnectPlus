@@ -2,12 +2,12 @@
   font-family: "Ubuntu", sans-serif;
   width: 700px;
   height: 450px;
-  margin: auto;
   margin-top: 50px;
+  background-color: #fdfcfa;
   padding-top: 30px;
-  margin-bottom: 30px;
+  margin-left: 23em;
   border-radius: 1.5em;
-  box-shadow: 0px 10px 25px 2px rgba(0, 0, 0, 0.14);
+  box-shadow: 0px 10px 25px 2px rgba(0, 0, 0, 0.165);
 }
 
 .user_profile {
@@ -19,17 +19,17 @@
 
 .user_Email {
   width: 80%;
-  color: rgb(38, 50, 56);
+  color: rgb(0, 0, 0);
   font-weight: 700;
   font-size: 14px;
   letter-spacing: 1px;
-  background: rgba(136, 126, 126, 0.04);
+  background: #fdfff5;
   padding: 10px 20px;
   border: none;
   border-radius: 20px;
   outline: none;
   box-sizing: border-box;
-  border: 2px solid rgba(0, 0, 0, 0.02);
+  border: 2px solid rgba(119, 117, 117, 0.71);
   margin-bottom: 20px;
   margin-top: 30px;
   margin-left: 75px;
@@ -43,17 +43,17 @@ form.User_Form {
 
 .user_Password {
   width: 80%;
-  color: rgb(38, 50, 56);
+  color: rgb(0, 0, 0);
   font-weight: 700;
   font-size: 14px;
   letter-spacing: 1px;
-  background: rgba(136, 126, 126, 0.04);
+  background-color: #fdfff5;
   padding: 10px 20px;
   border: none;
   border-radius: 20px;
   outline: none;
   box-sizing: border-box;
-  border: 2px solid rgba(0, 0, 0, 0.02);
+  border: 2px solid rgba(119, 117, 117, 0.71);
   margin-left: 75px;
   text-align: center;
   margin-bottom: 10px;
@@ -70,7 +70,7 @@ form.User_Form {
   cursor: pointer;
   border-radius: 5em;
   color: #fff;
-  background-color: #5d55ff;
+  background-color: #2541b2;
   border: 0;
   width: 250px;
   margin-top: 40px;
@@ -87,10 +87,11 @@ form.User_Form {
 .user_profile_p {
   font-size: 12px;
   text-align: center;
-  color: rgb(172, 168, 168);
+  color: #999999;
   margin-top: 20px;
   align-items: center;
 }
+
 @media (max-width: 600px) {
   .main-container {
     border-radius: 0px;

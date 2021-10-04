@@ -1,23 +1,24 @@
 .post {
-  width: 100%;
+  width: 75%;
   margin-top: 15px;
   border-radius: 15px;
-  background-color: white;
-  border: 1px solid rgb(206, 204, 204);
-  box-shadow: 0px 5px 7px -7px rgba(0, 0, 0, 0.75);
+  background-color: #f8f8ff;
+  border: 1px solid rgba(119, 117, 117, 0.71);
+  box-shadow: 5px 8px 7px -7px rgba(0, 0, 0, 0.75);
 }
 .post-top {
   display: flex;
   position: relative;
-
   align-items: center;
   padding: 15px;
 }
 .post-image > img {
   width: 100%;
+  height: 450px;
 }
 .post-image > video {
   width: 100%;
+  height: 500px;
 }
 .post-image > object {
   width: 100%;
@@ -27,6 +28,7 @@
   margin-right: 10px;
 }
 .post-topInfo > h3 {
+  color: black;
   margin-left: 8px;
   font-size: medium;
 }
@@ -43,11 +45,11 @@
 }
 .post-options {
   padding-top: 10px;
-  border-top: 1px solid lightgray;
+  border-top: 1px solid rgba(119, 117, 117, 0.71);
   display: flex;
   justify-content: space-evenly;
   font-size: medium;
-  color: gray;
+  color: #1768ac;
   cursor: pointer;
   padding: 15px;
 }
@@ -63,7 +65,7 @@
 }
 
 .post-option:hover {
-  background-color: #eff2f5;
+  background-color: #eeeeff;
   border-radius: 10px;
 }
 .postMessage {
@@ -71,7 +73,7 @@
   font-size: 16px;
 }
 .containerModal {
-  border: 2px solid #dedede;
+  border: 2px solid rgba(119, 117, 117, 0.71);
   background-color: #f1f1f1;
   border-radius: 5px;
   padding: 10px;
@@ -152,6 +154,7 @@
 }
 .postAuthorModal {
   margin: 5px;
+  font-size: 20px;
   margin-top: 28px;
   margin-bottom: 5px;
 }
@@ -186,7 +189,7 @@
   cursor: pointer;
   border-radius: 15px;
   border: none;
-  background: #5d55ff;
+  background: #2541b2;
   margin-top: 20px;
   box-shadow: 0px 5px 0px 0px #9692e2;
 }

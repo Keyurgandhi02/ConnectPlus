@@ -1,19 +1,19 @@
 .centered {
   width: 100%;
-  height: 100%;
+  height: max-content;
   position: absolute;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-  background: rgb(255, 255, 255);
-  filter: blur(5px) contrast(20);
+  background: #242526;
+  opacity: 1;
 }
 .blob-1,
 .blob-2 {
   width: 70px;
   height: 70px;
   position: absolute;
-  background: black;
+  background: #2541b2;
   border-radius: 50%;
   top: 50%;
   left: 50%;
@@ -26,7 +26,7 @@
 .blob-2 {
   left: 80%;
   animation: osc-r 2.5s ease infinite;
-  background: #5d55ff;
+  background: #bd1616;
 }
 @keyframes osc-l {
   0% {

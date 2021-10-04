@@ -21,11 +21,11 @@ function DeletePost({ postId }) {
         style={{
           margin: "20px",
           cursor: "pointer",
-          width: "100%",
+          width: "75%",
           borderRadius: "12px",
-          height: "30px",
+          height: "33px",
           border: "none",
-          backgroundColor: "#ff0800",
+          backgroundColor: "#bd1616",
           color: "white",
         }}
       >

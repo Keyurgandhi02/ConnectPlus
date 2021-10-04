@@ -1,6 +1,9 @@
 .app {
-  background-color: #f1f2f5;
+  /* background-color: #f1f2f5;
+   */
+  background-color: white;
 }
 .app_body {
   display: flex;
+  min-height: 100vh;
 }

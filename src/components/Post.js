@@ -16,6 +16,7 @@ function Post({ profilePic, image, username, timestamp, message, postId }) {
   const [isModal, setIsModal] = useState(false);
   const [comments, setComments] = useState([]);
   const [comment, setComment] = useState("");
+  const [commentCount, setCommentCount] = useState(0);
   const [isVideo, setIsVideo] = useState(false);
   const [isImage, setIsImage] = useState(false);
   const [isDocument, setIsDocument] = useState(false);
@@ -43,16 +44,36 @@ function Post({ profilePic, image, username, timestamp, message, postId }) {
         .orderBy("currentTime", "desc")
         .onSnapshot((snapshot) => {
           setComments(snapshot.docs.map((doc) => doc.data()));
+          setCommentCount(snapshot.size);
         });
     }
   }, [postId]);
+
   useEffect(() => {
-    if (image.includes(".mp4")) {
+    if (image?.includes(".mp4")) {
       setIsVideo(true);
-    } else if (image.includes(".pdf" || ".docs" || "doc" || ".xlxs")) {
+    } else if (
+      image?.includes(".pdf") ||
+      image?.includes(".docs") ||
+      image?.includes(".doc") ||
+      image?.includes(".xlsx") ||
+      image?.includes(".odt") ||
+      image?.includes(".xls") ||
+      image?.includes(".ppt") ||
+      image?.includes(".pptx") ||
+      image?.includes(".txt")
+    ) {
       setIsDocument(true);
-    } else {
+    } else if (
+      image?.includes(".jpg") ||
+      image?.includes(".jpeg") ||
+      image?.includes(".png") ||
+      image?.includes(".gif") ||
+      image?.includes(".webp")
+    ) {
       setIsImage(true);
+    } else {
+      setIsImage(false);
     }
   }, [image]);
 
@@ -117,7 +138,8 @@ function Post({ profilePic, image, username, timestamp, message, postId }) {
               }}
             />
           </div>
-          <span>Comments</span>
+          <span></span>
+          <span>{commentCount} Comments</span>
           <div className="postModal">
             {comments.map((com) => (
               <div className="postBodyModal" key={com.id}>
