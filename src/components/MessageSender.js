@@ -13,7 +13,7 @@ function MessageSender() {
   const [file, setFile] = useState("");
   const [fileLoader, setFileLoader] = useState("");
 
-  const maxFileSize = 100000000; //10MB
+  const maxFileSize = 15000000; //10MB
 
   const videoUploadHandler = (e) => {
     let files = e.target.files[0];

@@ -49,7 +49,7 @@
 
 .messageSender-option > label {
   font-size: medium;
-  font-size: 1.17em;
+  font-size: 0.9em;
   font-weight: bold;
   margin-left: 10px;
   cursor: pointer;
@@ -75,4 +75,22 @@
   color: black;
   font-style: normal;
   text-align: center;
+}
+
+@media (min-width: 320px) and (max-width: 420px) {
+  .messageSender {
+    width: 310px;
+    margin: 5px;
+  }
+  .messageSender-option {
+    padding: 16px;
+    margin: 2px;
+  }
+  .messageSender-option > label {
+    font-size: 0.9em;
+  }
+
+  .messageSender-bottom {
+    justify-content: flex-start;
+  }
 }

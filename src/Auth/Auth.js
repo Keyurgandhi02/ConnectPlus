@@ -114,7 +114,10 @@ function Auth() {
       </p>
       {isModal && (
         <ErrorModal errorName="Failed To Login!">
-          <h3 style={{ color: "gray" }}>Oops Something Went Wrong!</h3>
+          <center>
+            {" "}
+            <h3 style={{ color: "gray" }}>Failed to login</h3>
+          </center>
           <lottie-player
             src="https://assets3.lottiefiles.com/packages/lf20_C7fkiN.json"
             background="transparent"
@@ -126,12 +129,12 @@ function Auth() {
           <center>
             <button
               style={{
-                backgroundColor: "#5d55ff",
+                backgroundColor: "#cc3300",
                 width: "180px",
-                height: "30px",
+                height: "40px",
                 border: "none",
                 cursor: "pointer",
-                margin: "20px",
+                textAlign: "center",
                 color: "white",
                 borderRadius: "50px",
               }}

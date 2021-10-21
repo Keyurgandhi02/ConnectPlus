@@ -98,3 +98,8 @@
 .blockquote h4:first-letter {
   margin-left: -12px;
 }
+@media (max-width: 576px) {
+  .card {
+    display: none;
+  }
+}

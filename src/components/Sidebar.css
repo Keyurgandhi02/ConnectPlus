@@ -3,3 +3,21 @@
   flex: 0.33;
   position: fixed;
 }
+.MenuIconContainer {
+  display: none;
+}
+@media (min-width: 320px) and (max-width: 420px) {
+  .sidebar {
+    padding: 15px 5px;
+    flex: 0.33;
+    position: fixed;
+    display: flex;
+    overflow-x: hidden;
+    z-index: 1;
+  }
+  .MenuIconContainer {
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+  }
+}

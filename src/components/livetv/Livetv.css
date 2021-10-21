@@ -1,0 +1,15 @@
+.mainPlayer {
+  margin-top: 2em;
+  left: 60%;
+  position: relative;
+  width: 90vh;
+  margin-bottom: 1.5em;
+  height: 50vh;
+}
+.livetvHeading {
+  text-align: center;
+  left: 60%;
+  margin-top: 1.5em;
+  margin-bottom: 1.5em;
+  position: relative;
+}

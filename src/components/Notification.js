@@ -21,6 +21,19 @@ const Notification = () => {
         )
       );
   }, [user]);
+  // useEffect(() => {
+  //   db.collection("posts")
+  //     .where("username", "!=", user)
+  //     .limit(20)
+  //     .onSnapshot((snapshot) =>
+  //       setIsNotification(
+  //         snapshot.docs.map((doc) => ({
+  //           id: doc.id,
+  //           data: doc.data(),
+  //         }))
+  //       )
+  //     );
+  // }, [user]);
   return (
     <div className="mainbody">
       {!isNotification.length && (

@@ -3,7 +3,6 @@ import Post from "./Post";
 import "./Feed.css";
 import db from "../Auth/Firbase";
 import { useAuth } from "../Store/AuthContext";
-import DeletePost from "./DeletePost";
 
 const UserPosts = () => {
   const { currentUser } = useAuth();
@@ -47,18 +46,16 @@ const UserPosts = () => {
         </span>
       )}
       {posts.map((post) => (
-        <>
-          <Post
-            key={post.id}
-            postId={post.id}
-            profilePic={post.data.profilePic}
-            message={post.data.message}
-            timestamp={post.data.timestamp}
-            username={post.data.username}
-            image={post.data.image}
-          />
-          <DeletePost postId={post.id} />
-        </>
+        <Post
+          key={post.id}
+          postId={post.id}
+          profilePic={post.data.profilePic}
+          message={post.data.message}
+          timestamp={post.data.timestamp}
+          username={post.data.username}
+          image={post.data.image}
+          visible={true}
+        />
       ))}
     </div>
   );

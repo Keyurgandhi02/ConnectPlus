@@ -211,3 +211,36 @@
   margin-bottom: 10px;
   border-radius: 50%;
 }
+.deletePost {
+  border: none;
+  color: #bd1616;
+  background-color: transparent;
+  margin-left: 47em;
+  cursor: pointer;
+  margin-top: 1em;
+}
+
+.deletePost:hover {
+  color: rgb(156, 32, 32);
+}
+@media (min-width: 320px) and (max-width: 420px) {
+  .post {
+    width: 310px;
+    margin: 10px;
+  }
+  .post-topInfo > h3 {
+    font-size: small;
+  }
+  .post-image > img {
+    width: 100%;
+    height: auto;
+  }
+  .post-image > video {
+    width: 100%;
+    height: auto;
+  }
+  .post-image > object {
+    width: 100%;
+    height: auto;
+  }
+}

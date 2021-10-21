@@ -42,11 +42,9 @@ function Activity() {
         )}
         <ul>
           {activity.map((data) => (
-            <>
-              <li className="activityItemList" key={data.id}>
-                Contact Message:- {data.data.message}
-              </li>
-            </>
+            <li className="activityItemList" key={data.id}>
+              Contact Message:- {data.data.message}
+            </li>
           ))}
         </ul>
       </div>

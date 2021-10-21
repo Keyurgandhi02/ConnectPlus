@@ -117,3 +117,32 @@
 .container:focus-within > .searchInputWrapper > .searchInputIcon {
   right: 0.2rem;
 }
+
+@media (min-width: 320px) and (max-width: 420px) {
+  .header {
+    display: flex;
+    flex-direction: row;
+    padding: 1px;
+    position: sticky;
+    background-color: white;
+    z-index: 100;
+    top: 0;
+  }
+  .searchInputWrapper {
+    display: none;
+  }
+  .header_option {
+    padding: 2px 17px;
+    margin-top: 0.3em;
+    margin-bottom: 0.3em;
+  }
+  .header_option:hover {
+    padding: 2px 17px;
+  }
+  .header_left > img {
+    display: none;
+  }
+  .header_right {
+    display: none;
+  }
+}

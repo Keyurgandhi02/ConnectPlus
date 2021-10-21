@@ -8,3 +8,11 @@
   margin-left: 10em;
   margin-right: 12em;
 }
+
+@media (min-width: 320px) and (max-width: 420px) {
+  .feed {
+    padding: 10px 0px;
+    margin-left: 0.1em;
+    margin-right: 0px;
+  }
+}

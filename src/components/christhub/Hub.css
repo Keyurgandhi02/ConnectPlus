@@ -1,9 +1,70 @@
-.dropMenu {
-  margin-top: 15px;
-  height: 40px;
-  border: 1px solid;
-  border-radius: 20px;
-  display: block;
-  margin-left: 25em;
+.nav-list-container {
+  margin-left: 15em;
+  margin-top: 2em;
+  width: 80%;
+  height: max-content;
+}
+.nav-list {
+  background-color: #2541b2;
+  border-radius: 16px;
+  display: flex;
+  margin-top: 4em;
+  flex-direction: row;
+  justify-content: space-evenly;
+  align-items: center;
+  width: auto;
+  height: auto;
+  border: 14px solid #fff;
+  border-radius: 36px;
+  padding: 5px;
+  box-shadow: black;
+}
+.btnFilter {
+  color: white;
+  background-color: transparent;
+  width: 200px;
   cursor: pointer;
+  height: 35px;
+  border: none;
+  border-radius: 15px;
+  font-size: 16px;
+}
+
+select {
+  appearance: none;
+  outline: 0;
+  border: 0;
+  box-shadow: none;
+  flex: 1;
+  padding: 0 1em;
+  color: #fff;
+  background-image: none;
+  background-color: transparent;
+  font-size: 16px;
+  cursor: pointer;
+  border-radius: 15px;
+}
+
+.select {
+  position: relative;
+  display: flex;
+  width: 10em;
+  cursor: pointer;
+  height: 3em;
+  border-radius: 0.25em;
+  color: white;
+  overflow: hidden;
+}
+.select::after {
+  content: "\25BC";
+  position: absolute;
+  top: 0;
+  right: 0;
+  padding: 1em;
+  background-color: transparent;
+  transition: 0.25s all ease;
+  pointer-events: none;
+}
+.select:hover::after {
+  color: #bd1616;
 }

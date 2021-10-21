@@ -25,200 +25,227 @@ import Notfoundpage from "./components/OtherPages/Notfoundpage";
 import Review from "./components/OtherPages/Review";
 import Activity from "./components/activity/Activity";
 import Allreview from "./components/activity/Allreview";
+import { Offline, Online } from "react-detect-offline";
+import Livetv from "./components/livetv/Livetv";
 function App() {
   return (
     <>
-      <AuthProvider>
-        <Switch>
-          <Route path="/auth" component={Auth} />
+      <Online>
+        <AuthProvider>
+          <Switch>
+            <Route path="/auth" component={Auth} />
 
-          <Route path="/" exact>
-            <Redirect to="/home" />
-          </Route>
+            <Route path="/" exact>
+              <Redirect to="/home" />
+            </Route>
 
-          <PrivateRoute path="/home">
-            <div className="app" id="app">
+            <PrivateRoute path="/home">
+              <div className="app" id="app">
+                <>
+                  <Header />
+
+                  <div className="app_body">
+                    <Sidebar />
+                    <Feed />
+
+                    <Card />
+                    {/* <Poll /> */}
+                    <ScrollTop />
+                  </div>
+                </>
+              </div>
+            </PrivateRoute>
+
+            <PrivateRoute path="/userProfile" exact>
+              <div className="app" id="app">
+                <>
+                  <Header />
+
+                  <div className="app_body">
+                    <Sidebar />
+                    <UserProfile />
+                  </div>
+                </>
+              </div>
+            </PrivateRoute>
+
+            <PrivateRoute path="/chat" exact>
               <>
                 <Header />
 
-                <div className="app_body">
-                  <Sidebar />
-                  <Feed />
-
-                  <Card />
-                  {/* <Poll /> */}
-                  <ScrollTop />
-                </div>
+                <Home />
               </>
-            </div>
-          </PrivateRoute>
+            </PrivateRoute>
 
-          <PrivateRoute path="/userProfile" exact>
-            <div className="app" id="app">
-              <>
-                <Header />
+            <PrivateRoute path="/allposts" exact>
+              <div className="app" id="app">
+                <>
+                  <Header />
 
-                <div className="app_body">
-                  <Sidebar />
-                  <UserProfile />
-                </div>
-              </>
-            </div>
-          </PrivateRoute>
+                  <div className="app_body">
+                    <SidebarAllPages1 />
 
-          <PrivateRoute path="/chat" exact>
-            <>
-              <Header />
+                    <UserPosts />
+                  </div>
+                </>
+              </div>
+            </PrivateRoute>
 
-              <Home />
-            </>
-          </PrivateRoute>
+            <PrivateRoute path="/activity" exact>
+              <div className="app" id="app">
+                <>
+                  <Header />
 
-          <PrivateRoute path="/allposts" exact>
-            <div className="app" id="app">
-              <>
-                <Header />
+                  <div className="app_body">
+                    <SidebarAllPages1 />
 
-                <div className="app_body">
-                  <SidebarAllPages1 />
+                    <UserPosts />
+                  </div>
+                </>
+              </div>
+            </PrivateRoute>
 
-                  <UserPosts />
-                </div>
-              </>
-            </div>
-          </PrivateRoute>
+            <PrivateRoute path="/allcontact" exact>
+              <div className="app" id="app">
+                <>
+                  <Header />
 
-          <PrivateRoute path="/activity" exact>
-            <div className="app" id="app">
-              <>
-                <Header />
+                  <div className="app_body">
+                    <SidebarAllPages1 />
 
-                <div className="app_body">
-                  <SidebarAllPages1 />
+                    <Activity />
+                  </div>
+                </>
+              </div>
+            </PrivateRoute>
 
-                  <UserPosts />
-                </div>
-              </>
-            </div>
-          </PrivateRoute>
+            <PrivateRoute path="/allreview" exact>
+              <div className="app" id="app">
+                <>
+                  <Header />
 
-          <PrivateRoute path="/allcontact" exact>
-            <div className="app" id="app">
-              <>
-                <Header />
+                  <div className="app_body">
+                    <SidebarAllPages1 />
 
-                <div className="app_body">
-                  <SidebarAllPages1 />
+                    <Allreview />
+                  </div>
+                </>
+              </div>
+            </PrivateRoute>
 
-                  <Activity />
-                </div>
-              </>
-            </div>
-          </PrivateRoute>
+            <PrivateRoute path="/notification" exact>
+              <div className="app" id="app">
+                <>
+                  <Header />
 
-          <PrivateRoute path="/allreview" exact>
-            <div className="app" id="app">
-              <>
-                <Header />
+                  <div className="app_body">
+                    <Sidebar />
 
-                <div className="app_body">
-                  <SidebarAllPages1 />
+                    <Notification />
+                  </div>
+                </>
+              </div>
+            </PrivateRoute>
+            <PrivateRoute path="/allpages" exact>
+              <div className="app" id="app">
+                <>
+                  <Header />
 
-                  <Allreview />
-                </div>
-              </>
-            </div>
-          </PrivateRoute>
+                  <div className="app_body">
+                    <SidebarAllPages />
 
-          <PrivateRoute path="/notification" exact>
-            <div className="app" id="app">
-              <>
-                <Header />
+                    <Contact />
+                  </div>
+                </>
+              </div>
+            </PrivateRoute>
 
-                <div className="app_body">
-                  <Sidebar />
+            <PrivateRoute path="/review" exact>
+              <div className="app" id="app">
+                <>
+                  <Header />
 
-                  <Notification />
-                </div>
-              </>
-            </div>
-          </PrivateRoute>
-          <PrivateRoute path="/allpages" exact>
-            <div className="app" id="app">
-              <>
-                <Header />
+                  <div className="app_body">
+                    <SidebarAllPages />
 
-                <div className="app_body">
-                  <SidebarAllPages />
+                    <Review />
+                  </div>
+                </>
+              </div>
+            </PrivateRoute>
+            <Route path="/forgot" exact>
+              <ForgotPassword />
+            </Route>
+            <PrivateRoute path="/announcement" exact>
+              <div className="app" id="app">
+                <>
+                  <Header />
 
-                  <Contact />
-                </div>
-              </>
-            </div>
-          </PrivateRoute>
+                  <div className="app_body">
+                    <Sidebar />
+                    <AnnounceMent />
+                  </div>
+                </>
+              </div>
+            </PrivateRoute>
 
-          <PrivateRoute path="/review" exact>
-            <div className="app" id="app">
-              <>
-                <Header />
+            <PrivateRoute path="/friends" exact>
+              <div className="app" id="app">
+                <>
+                  <Header />
+                  <div className="app_body">
+                    <Sidebar />
 
-                <div className="app_body">
-                  <SidebarAllPages />
+                    <Friend />
+                  </div>
+                </>
+              </div>
+            </PrivateRoute>
 
-                  <Review />
-                </div>
-              </>
-            </div>
-          </PrivateRoute>
-          <Route path="/forgot" exact>
-            <ForgotPassword />
-          </Route>
-          <PrivateRoute path="/announcement" exact>
-            <div className="app" id="app">
-              <>
-                <Header />
+            <PrivateRoute path="/christhub" exact>
+              <div className="app" id="app">
+                <>
+                  <Header />
+                  <div className="app_body">
+                    <Sidebar />
 
-                <div className="app_body">
-                  <Sidebar />
-                  <AnnounceMent />
-                </div>
-              </>
-            </div>
-          </PrivateRoute>
+                    <Hub />
+                  </div>
+                </>
+              </div>
+            </PrivateRoute>
+            <PrivateRoute path="/livetv" exact>
+              <div className="app" id="app">
+                <>
+                  <Header />
+                  <div className="app_body">
+                    <Livetv />
+                  </div>
+                </>
+              </div>
+            </PrivateRoute>
+            <PrivateRoute path="/logout" exact>
+              <Logout />
+            </PrivateRoute>
+            <Route path="*">
+              <Notfoundpage />
+            </Route>
+          </Switch>
+        </AuthProvider>
+      </Online>
 
-          <PrivateRoute path="/friends" exact>
-            <div className="app" id="app">
-              <>
-                <Header />
-                <div className="app_body">
-                  <Sidebar />
-
-                  <Friend />
-                </div>
-              </>
-            </div>
-          </PrivateRoute>
-
-          <PrivateRoute path="/christhub" exact>
-            <div className="app" id="app">
-              <>
-                <Header />
-                <div className="app_body">
-                  <Sidebar />
-
-                  <Hub />
-                </div>
-              </>
-            </div>
-          </PrivateRoute>
-          <PrivateRoute path="/logout" exact>
-            <Logout />
-          </PrivateRoute>
-          <Route path="*">
-            <Notfoundpage />
-          </Route>
-        </Switch>
-      </AuthProvider>
+      <Offline>
+        <h2
+          style={{
+            color: "#cc3300",
+            marginLeft: "7em",
+            marginTop: "9em",
+            fontSize: "30px",
+          }}
+        >
+          You're offline right now. Please Check your Internet connection.
+        </h2>
+      </Offline>
     </>
   );
 }

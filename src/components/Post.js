@@ -1,18 +1,25 @@
 import React, { useEffect, useState } from "react";
 import { Avatar } from "@material-ui/core";
-import db, { fieldDec, fieldInc } from "../Auth/Firbase";
+import db from "../Auth/Firbase";
 import { useAuth } from "../Store/AuthContext";
 import Modal from "../UI/Modal";
+import DeleteIcon from "@material-ui/icons/Delete";
+
 import "./Post.css";
 import {
-  ChatBubbleOutline,
-  ThumbDown,
-  PersonAdd,
-  ThumbUp,
+  // ChatBubbleOutline,
   Close,
 } from "@material-ui/icons";
 
-function Post({ profilePic, image, username, timestamp, message, postId }) {
+function Post({
+  profilePic,
+  image,
+  username,
+  timestamp,
+  message,
+  postId,
+  visible,
+}) {
   const [isModal, setIsModal] = useState(false);
   const [comments, setComments] = useState([]);
   const [comment, setComment] = useState("");
@@ -21,8 +28,6 @@ function Post({ profilePic, image, username, timestamp, message, postId }) {
   const [isImage, setIsImage] = useState(false);
   const [isDocument, setIsDocument] = useState(false);
   const { avatarMaker, currentUser } = useAuth();
-  const [like, setLike] = useState(false);
-  const [dislike, setDisLike] = useState(false);
 
   // Comment Section
 
@@ -86,37 +91,15 @@ function Post({ profilePic, image, username, timestamp, message, postId }) {
     setIsModal(false);
   };
 
-  //Like Handler
-  const likeHandler = () => {
-    const likesRef = db
-      .collection("posts")
-      .doc(postId)
-      .collection("likes")
-      .doc("likes");
-
-    setLike(!like);
-
-    if (like === false) {
-      likesRef.set({ likes: fieldInc }, { merge: true });
+  //delete post
+  const deletePostHandler = () => {
+    const response = window.confirm(
+      "Are you sure you want to delete your post"
+    );
+    if (response === true) {
+      db.collection("posts").doc(postId).delete();
     } else {
-      likesRef.update({ likes: fieldDec });
-    }
-  };
-
-  //Dislike Handler
-  const disLikeHandler = () => {
-    const dislikesRef = db
-      .collection("posts")
-      .doc(postId)
-      .collection("Dislikes")
-      .doc("Dislikes");
-
-    setDisLike(!dislike);
-
-    if (dislike === false) {
-      dislikesRef.set({ Dislikes: fieldInc }, { merge: true });
-    } else {
-      dislikesRef.update({ Dislikes: fieldDec });
+      return;
     }
   };
 
@@ -139,10 +122,11 @@ function Post({ profilePic, image, username, timestamp, message, postId }) {
             />
           </div>
           <span></span>
-          <span>{commentCount} Comments</span>
+          {commentCount > 0 && <span>{commentCount} Answers</span>}
+          <h4>{commentCount === 0 ? "No answers start giving answer" : " "}</h4>
           <div className="postModal">
             {comments.map((com) => (
-              <div className="postBodyModal" key={com.id}>
+              <div className="postBodyModal">
                 <Avatar
                   className="commetModalImage"
                   style={{
@@ -166,7 +150,7 @@ function Post({ profilePic, image, username, timestamp, message, postId }) {
             ))}
           </div>
           <form onSubmit={postComment} className="formModal">
-            <label htmlFor="comment">Your Comment</label>
+            <label htmlFor="comment">Your Answer</label>
             <textarea
               id="comment"
               type="text"
@@ -181,12 +165,17 @@ function Post({ profilePic, image, username, timestamp, message, postId }) {
               disabled={!comment}
               className="commetModalButton"
             >
-              Post Comment
+              Post Answer
             </button>
           </form>
         </Modal>
       )}
       <div className="post">
+        {visible && (
+          <button onClick={deletePostHandler} className="deletePost">
+            <DeleteIcon />{" "}
+          </button>
+        )}
         <div className="post-top">
           <Avatar style={{ backgroundColor: "lightskyblue" }}>
             {avatarMaker(profilePic)}
@@ -207,41 +196,9 @@ function Post({ profilePic, image, username, timestamp, message, postId }) {
           )}
         </div>
         <div className="post-options">
-          <div className="post-option" onClick={likeHandler}>
-            {like && <ThumbUp style={{ color: "#e9103d" }} />}
-            {!like && <ThumbUp />}
-            {/* <p>Like</p> */}
-
-            {/* {likeCount.map((likeData) =>
-              likeData.likes === 0 ? (
-                <p></p>
-              ) : (
-                <p key={likeData.id}>{likeData.likes}</p>
-              )
-            )} */}
-          </div>
-
-          <div className="post-option" onClick={disLikeHandler}>
-            {dislike && <ThumbDown style={{ color: "#e9103d" }} />}
-            {!dislike && <ThumbDown />}
-            {/* <p style={{ marginBottom: "3px" }}>Dislike</p> */}
-
-            {/* {dislikeCount.map((likeData) =>
-              likeData.Dislikes === 0 ? (
-                <p></p>
-              ) : (
-                <p style={{ marginBottom: "3px" }} key={likeData.id}>
-                  {likeData.Dislikes}
-                </p>
-              )
-            )} */}
-          </div>
           <div className="post-option" onClick={commentShowHandler}>
-            <ChatBubbleOutline />
-          </div>
-
-          <div className="post-option">
-            <PersonAdd />
+            <h4>Post your answer</h4>
+            {/* <ChatBubbleOutline /> */}
           </div>
         </div>
       </div>

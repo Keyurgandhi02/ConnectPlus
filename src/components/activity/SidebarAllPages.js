@@ -8,7 +8,7 @@ import { Link } from "react-router-dom";
 const SidebarAllPages = () => {
   return (
     <div className="sidebar">
-      <Link to="/allposts" activeClassName="sidebarRow_active">
+      <Link to="/allposts">
         <SidebarRow title="Your Posts" Icon={HistoryIcon} />
       </Link>
       <Link to="/allcontact">

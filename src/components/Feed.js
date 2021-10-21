@@ -5,18 +5,29 @@ import Post from "./Post";
 import db from "../Auth/Firbase";
 function Feed() {
   const [posts, setPosts] = useState([]);
+  const loadSize = 10;
+  const [load, setLoad] = useState(loadSize);
+  const [isLoadSize, setLoadSize] = useState();
+
   useEffect(() => {
     db.collection("posts")
       .orderBy("timestamp", "desc")
-      .onSnapshot((snapshot) =>
+      .limit(load)
+      .onSnapshot((snapshot) => {
         setPosts(
           snapshot.docs.map((doc) => ({
             id: doc.id,
             data: doc.data(),
           }))
-        )
-      );
-  }, []);
+        );
+        setLoadSize(snapshot.size);
+      });
+  }, [load]);
+
+  const loadMoreHandler = () => {
+    setLoad(load + 10);
+  };
+
   return (
     <div className="feed">
       <MessageSender />
@@ -37,9 +48,10 @@ function Feed() {
       {!posts.length && (
         <span style={{ textAlign: "center", marginTop: "50px" }}>
           {" "}
-          You Don't have any post start to Create it
+          You Don't Have Any Post Start To Create It
         </span>
       )}
+
       {posts.map((post) => (
         <Post
           key={post.id}
@@ -51,6 +63,26 @@ function Feed() {
           image={post.data.image}
         />
       ))}
+
+      {isLoadSize >= load && (
+        <button
+          onClick={loadMoreHandler}
+          style={{
+            color: "white",
+            backgroundColor: "#2541b2 ",
+            border: "none",
+            borderRadius: "20px",
+            textAlign: "center",
+            fontSize: "14px",
+            cursor: "pointer",
+            width: "200px",
+            height: "35px",
+            marginTop: "3em",
+          }}
+        >
+          Load More
+        </button>
+      )}
     </div>
   );
 }

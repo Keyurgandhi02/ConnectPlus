@@ -42,14 +42,12 @@ function Allreview() {
         )}
         <ul>
           {review.map((data) => (
-            <>
-              <li className="activityItemList" key={data.id}>
-                Contact Message:- {data.data.ratingDesc}
-                <br />
-                <br />
-                Rating:- {data.data.rating}
-              </li>
-            </>
+            <li className="activityItemList" key={data.id}>
+              Contact Message:- {data.data.ratingDesc}
+              <br />
+              <br />
+              Rating:- {data.data.rating}
+            </li>
           ))}
         </ul>
       </div>

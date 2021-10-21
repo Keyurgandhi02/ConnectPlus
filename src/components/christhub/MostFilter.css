@@ -1,0 +1,7 @@
+.btnDiv:hover {
+  background-color: #dbd7d2;
+  border-radius: 20px;
+}
+.btnFilter:hover {
+  color: #bd1616;
+}

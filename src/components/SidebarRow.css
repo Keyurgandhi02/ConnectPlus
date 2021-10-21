@@ -26,3 +26,18 @@
   font-size: xx-large;
   color: #1768ac;
 }
+
+@media (max-width: 576px) {
+  .sidebarRow {
+    display: flex;
+    padding: 10px;
+    cursor: pointer;
+    color: black;
+    background-color: white;
+    width: 250px;
+    box-shadow: 5px 10px 8px -7px rgba(0, 0, 0, 0.358);
+  }
+  .sidebarRow:hover {
+    border-radius: 0px;
+  }
+}
