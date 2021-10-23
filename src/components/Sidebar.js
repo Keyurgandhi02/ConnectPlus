@@ -37,16 +37,16 @@ const Sidebar = () => {
           <SidebarRow title="Christ Hub" Icon={DeviceHub} />
         </NavLink>
 
-        <NavLink to="/allpages" activeClassName="sidebarRow_active">
-          <SidebarRow title="Pages" Icon={EmojiFlags} />
-        </NavLink>
-
         <NavLink to="/livetv" activeClassName="sidebarRow_active">
           <SidebarRow title="Connect Streams" Icon={LiveTv} />
         </NavLink>
 
         <NavLink to="/activity" activeClassName="sidebarRow_active">
           <SidebarRow title="Your Activity" Icon={AccessTime} />
+        </NavLink>
+
+        <NavLink to="/allpages" activeClassName="sidebarRow_active">
+          <SidebarRow title="Pages" Icon={EmojiFlags} />
         </NavLink>
 
         <NavLink to="/Logout" activeClassName="sidebarRow_active">

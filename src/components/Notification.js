@@ -52,10 +52,11 @@ const Notification = () => {
             style={{
               marginTop: "30px",
               marginLeft: "14em",
+              color: "#9f9b9a",
             }}
           >
             {" "}
-            you don't have any notification
+            You Don't Have Any Notification
           </span>
         </>
       )}

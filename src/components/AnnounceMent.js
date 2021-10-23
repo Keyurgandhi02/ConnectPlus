@@ -34,9 +34,10 @@ const AnnounceMent = () => {
             style={{
               marginTop: "30px",
               marginLeft: "35em",
+              color: "#9f9b9a",
             }}
           >
-            You don't have any announcement{" "}
+            You Don't Have Any Announcement{" "}
           </span>
         </>
       )}

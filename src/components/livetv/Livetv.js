@@ -7,9 +7,10 @@ import HomeIcon from "@material-ui/icons/Home";
 
 function Livetv() {
   const [isStreams, setStreams] = useState([]);
+
   useEffect(() => {
     db.collection("streams")
-      .orderBy("time", "desc")
+      .orderBy("streamTime", "desc")
       .limit(5)
       .onSnapshot((snapshot) => {
         setStreams(
@@ -23,7 +24,7 @@ function Livetv() {
 
   return (
     <div>
-      {isStreams.map((data) => (
+      {isStreams?.map((data) => (
         <div className="mainPlayer">
           <ReactPlayer
             url={data.data.url}
@@ -34,6 +35,33 @@ function Livetv() {
           />
         </div>
       ))}
+      {!isStreams.length && (
+        <div className="noStreamsDiv">
+          <lottie-player
+            src="https://assets10.lottiefiles.com/packages/lf20_wrv4fzkk.json"
+            background="transparent"
+            speed="1"
+            style={{ width: "300px", height: "300px" }}
+            loop
+            autoplay
+          ></lottie-player>
+        </div>
+      )}
+
+      {!isStreams.length && (
+        <span
+          style={{
+            textAlign: "center",
+            marginTop: "50px",
+            marginLeft: "30em",
+            color: "#9f9b9a",
+          }}
+        >
+          {" "}
+          We Will Notify You When We Are Live
+        </span>
+      )}
+
       <Link to="/home" className="floatButton">
         <HomeIcon className="my-float" fontSize="large" />
       </Link>

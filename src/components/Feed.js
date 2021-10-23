@@ -46,7 +46,9 @@ function Feed() {
       )}
 
       {!posts.length && (
-        <span style={{ textAlign: "center", marginTop: "50px" }}>
+        <span
+          style={{ textAlign: "center", marginTop: "50px", color: "#9f9b9a" }}
+        >
           {" "}
           You Don't Have Any Post Start To Create It
         </span>

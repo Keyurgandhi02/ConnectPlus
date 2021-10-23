@@ -83,8 +83,14 @@ function Hub() {
               loop
               autoplay
             ></lottie-player>
-            <span style={{ textAlign: "center", marginLeft: "23em" }}>
-              Please select category for data
+            <span
+              style={{
+                textAlign: "center",
+                marginLeft: "21em",
+                color: "#9f9b9a",
+              }}
+            >
+              Please Select Category For View Data
             </span>
           </>
         )}

@@ -1,4 +1,5 @@
 import "./App.css";
+import internet from "../src/assets/images/inter1.gif";
 import Auth from "./Auth/Auth";
 import Card from "../src/UI/Card";
 import ScrollTop from "../src/UI/ScrollTop";
@@ -28,6 +29,9 @@ import Allreview from "./components/activity/Allreview";
 import { Offline, Online } from "react-detect-offline";
 import Livetv from "./components/livetv/Livetv";
 function App() {
+  function refreshPage() {
+    window.location.reload();
+  }
   return (
     <>
       <Online>
@@ -235,16 +239,47 @@ function App() {
       </Online>
 
       <Offline>
-        <h2
-          style={{
-            color: "#cc3300",
-            marginLeft: "7em",
-            marginTop: "9em",
-            fontSize: "30px",
-          }}
-        >
-          You're offline right now. Please Check your Internet connection.
-        </h2>
+        <center>
+          <img
+            src={internet}
+            alt="No Connection"
+            width="300px"
+            height="300px"
+            style={{
+              marginTop: "5em",
+            }}
+          />
+          <h2
+            style={{
+              color: "#9f9b9a",
+
+              marginTop: "2em",
+              fontSize: "18px",
+            }}
+          >
+            Slow or no internet connection Please check your internet settings
+            and try again
+          </h2>
+          <button
+            type="button"
+            onClick={refreshPage}
+            style={{
+              color: "white",
+              backgroundColor: "#2541b2 ",
+              border: "none",
+              borderRadius: "20px",
+              textAlign: "center",
+              fontSize: "14px",
+              cursor: "pointer",
+              width: "220px",
+              height: "30px",
+              marginTop: "3em",
+            }}
+          >
+            {" "}
+            <span>Try again</span>{" "}
+          </button>
+        </center>
       </Offline>
     </>
   );

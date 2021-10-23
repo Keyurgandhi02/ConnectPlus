@@ -34,7 +34,7 @@
 .header_option {
   display: flex;
   align-items: center;
-  padding: 0 45px;
+  padding: 0 37px;
   cursor: pointer;
 }
 
@@ -116,6 +116,45 @@
 
 .container:focus-within > .searchInputWrapper > .searchInputIcon {
   right: 0.2rem;
+}
+
+.searchBar {
+  color: white;
+  background-color: #2541b2;
+  position: fixed;
+  left: 50%;
+  display: flex;
+  transform: translateX(-50%);
+  width: 100%;
+  max-width: 1200px;
+  z-index: 999;
+  text-align: center;
+  padding: 5px 20px;
+}
+
+.form-controlBar {
+  box-shadow: none;
+  outline: none;
+  border: 0;
+  color: #ffffff;
+  background: transparent;
+  font-weight: 400;
+  font-size: 15px;
+  padding: 0;
+  display: block;
+  width: 100%;
+  overflow: visible;
+  margin: 0;
+  font-family: inherit;
+  height: calc(2.25rem + 2px);
+  line-height: 1.5;
+  border-radius: 0.25rem;
+  transition: border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
+}
+.closeSearchBar {
+  color: #fff;
+  cursor: pointer;
+  padding: 10px 3px;
 }
 
 @media (min-width: 320px) and (max-width: 420px) {
