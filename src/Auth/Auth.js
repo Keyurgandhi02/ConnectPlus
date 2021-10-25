@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import useEmailInput from "../hooks/useEmail-input";
 import usePasswordInput from "../hooks/usePassword-input";
 import "./Auth.css";
+import connectplus from "../assets/images/mainlogo.png";
 import Loader from "../UI/Loader";
 import { useAuth } from "../Store/AuthContext";
 import { useHistory } from "react-router";
@@ -109,9 +110,14 @@ function Auth() {
 
   return (
     <div className="main-container">
-      <p className="sign" align="center">
-        {isLogin ? "Sign in" : "Sign up"}
-      </p>
+      <center>
+        <img
+          src={connectplus}
+          style={{ height: "60px", marginTop: "1em" }}
+          alt="logo connect plus"
+        />
+      </center>
+
       {isModal && (
         <ErrorModal errorName="Failed To Login!">
           <center>
@@ -186,10 +192,10 @@ function Auth() {
           align="center"
           onClick={switchAuthModeHandler}
         >
-          {isLogin ? "Create new account" : "Already have an account"}
+          {isLogin ? "Become a member" : "I am already member"}
         </button>
         <p className="note" align="center">
-          {isLogin && <Link to="/forgot">Forgot Password?</Link>}
+          {isLogin && <Link to="/forgot">Forget Password?</Link>}
         </p>
       </form>
       {isLoading && <Loader />}

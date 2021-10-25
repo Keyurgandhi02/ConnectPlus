@@ -4,12 +4,8 @@ import db from "../Auth/Firbase";
 import { useAuth } from "../Store/AuthContext";
 import Modal from "../UI/Modal";
 import DeleteIcon from "@material-ui/icons/Delete";
-
 import "./Post.css";
-import {
-  // ChatBubbleOutline,
-  Close,
-} from "@material-ui/icons";
+import { Close } from "@material-ui/icons";
 
 function Post({
   profilePic,
@@ -123,7 +119,7 @@ function Post({
           </div>
           <span></span>
           {commentCount > 0 && <span>{commentCount} Answers</span>}
-          <h4>{commentCount === 0 ? "No answers start giving answer" : " "}</h4>
+          <h4>{commentCount === 0 ? "No answers start giving first" : " "}</h4>
           <div className="postModal">
             {comments.map((com) => (
               <div className="postBodyModal">
@@ -197,8 +193,7 @@ function Post({
         </div>
         <div className="post-options">
           <div className="post-option" onClick={commentShowHandler}>
-            <h4>Post your answer</h4>
-            {/* <ChatBubbleOutline /> */}
+            <h4>Post Your Answer</h4>
           </div>
         </div>
       </div>

@@ -92,7 +92,9 @@ const UserProfile = () => {
         </button>
       </form>
       {Loading && <Loader />}
-      {error}
+      <h4 style={{ marginLeft: "14em", marginTop: "2em", color: "#cc3300" }}>
+        {error}
+      </h4>
     </div>
   );
 };
