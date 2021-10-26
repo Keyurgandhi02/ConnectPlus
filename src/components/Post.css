@@ -229,7 +229,14 @@
     margin: 10px;
   }
   .post-topInfo > h3 {
-    font-size: small;
+    font-size: 14px;
+    width: 180px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+  .post-topInfo > p {
+    font-size: 12px;
   }
   .post-image > img {
     width: 100%;
@@ -242,5 +249,15 @@
   .post-image > object {
     width: 100%;
     height: auto;
+  }
+  .postAuthorModal {
+    font-size: 14px;
+    width: 200px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+  .publishDateModal {
+    display: none;
   }
 }

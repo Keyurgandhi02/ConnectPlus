@@ -10,7 +10,7 @@
 .messageSender-top {
   display: flex;
   border-bottom: 1px solid rgba(119, 117, 117, 0.71);
-  padding: 15px;
+  padding: 10px;
 }
 .messageSender-top > form {
   flex: 1;
@@ -77,20 +77,25 @@
   text-align: center;
 }
 
-@media (min-width: 320px) and (max-width: 420px) {
+@media (min-width: 310px) and (max-width: 420px) {
   .messageSender {
-    width: 310px;
+    width: 305px;
     margin: 5px;
   }
+  .messageSender-bottom {
+    display: flex;
+  }
   .messageSender-option {
-    padding: 16px;
+    padding: 14px;
     margin: 2px;
   }
   .messageSender-option > label {
-    font-size: 0.9em;
+    display: none;
   }
 
-  .messageSender-bottom {
-    justify-content: flex-start;
+  .messageSender-top > form > input {
+    padding: 5px 5px;
+    font-size: 13px;
+    margin: 0 10px;
   }
 }

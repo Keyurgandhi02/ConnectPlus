@@ -157,7 +157,7 @@
   padding: 10px 3px;
 }
 
-@media (min-width: 320px) and (max-width: 420px) {
+@media (min-width: 310px) and (max-width: 420px) {
   .header {
     display: flex;
     flex-direction: row;

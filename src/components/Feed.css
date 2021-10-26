@@ -9,10 +9,10 @@
   margin-right: 12em;
 }
 
-@media (min-width: 320px) and (max-width: 420px) {
+@media (min-width: 310px) and (max-width: 420px) {
   .feed {
-    padding: 10px 0px;
-    margin-left: 0.1em;
+    padding: 23px 5px;
+    margin-left: 0.6em;
     margin-right: 0px;
   }
 }

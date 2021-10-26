@@ -6,7 +6,6 @@ import AnnouncementIcon from "@material-ui/icons/Announcement";
 import { Avatar } from "@material-ui/core";
 import AccountCircleIcon from "@material-ui/icons/AccountCircle";
 import ForumIcon from "@material-ui/icons/Forum";
-// import MenuIcon from "@material-ui/icons/Menu";
 import NotificationsActiveIcon from "@material-ui/icons/NotificationsActive";
 import { useAuth } from "../Store/AuthContext";
 import { Link, NavLink, useHistory } from "react-router-dom";
@@ -17,12 +16,7 @@ const Header = () => {
   const { currentUser, avatarMaker } = useAuth();
   const name = avatarMaker(currentUser.email);
   const history = useHistory();
-  const [isSearch, setSearch] = useState("");
   const [isSearchView, setSearchView] = useState(false);
-
-  const searchValueHandler = (e) => {
-    setSearch(e.target.value);
-  };
 
   const searchViewHandler = () => {
     setSearchView(!isSearchView);
@@ -34,7 +28,6 @@ const Header = () => {
   return (
     <>
       <div className="header">
-        {/* <MenuIcon></MenuIcon> */}
         <div className="header_left">
           <img
             src={connectplus}

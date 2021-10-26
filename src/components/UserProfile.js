@@ -78,6 +78,7 @@ const UserProfile = () => {
         <img
           src={visibility}
           alt=""
+          className="showPass"
           style={{ marginLeft: "10px", cursor: "pointer" }}
           onClick={showpasswordHandler}
         />

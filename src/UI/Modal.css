@@ -54,3 +54,9 @@
     transform: translateY(0);
   }
 }
+@media (min-width: 320px) and (max-width: 420px) {
+  .modal {
+    width: 20rem;
+    left: calc(50% - 10rem);
+  }
+}

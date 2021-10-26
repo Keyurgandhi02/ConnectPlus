@@ -92,8 +92,27 @@ form.User_Form {
   align-items: center;
 }
 
-@media (max-width: 600px) {
-  .main-container {
-    border-radius: 0px;
+@media (min-width: 320px) and (max-width: 420px) {
+  .main_Container {
+    width: 300px;
+    margin-left: 1.5em;
+  }
+  .user_Email {
+    width: auto;
+    justify-content: center;
+    margin-left: 2em;
+  }
+  .user_Password {
+    width: auto;
+    justify-content: center;
+    margin-left: 2em;
+  }
+  .showPass {
+    display: none;
+  }
+  .submit_UserProfile {
+    width: 85%;
+    justify-content: center;
+    margin-left: 2em;
   }
 }

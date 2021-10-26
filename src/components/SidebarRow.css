@@ -27,7 +27,7 @@
   color: #1768ac;
 }
 
-@media (max-width: 576px) {
+@media (min-width: 310px) and (max-width: 420px) {
   .sidebarRow {
     display: flex;
     padding: 10px;
