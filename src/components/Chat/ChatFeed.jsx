@@ -1,12 +1,14 @@
 import MessageForm from "./MessageForm";
 import MyMessage from "./MyMessage";
 import TheirMessage from "./TheirMessage";
-import peopleAvatar from "../../assets/images/peopleAvatar.png";
+// import { Avatar } from "@material-ui/core";
+// import { useAuth } from "../../Store/AuthContext";
 const ChatFeed = (props) => {
   const { chats, activeChat, userName, messages } = props;
   const chat = chats && chats[activeChat];
-
+  // const { avatarMaker } = useAuth();
   const renderReadReceipts = (message, isMyMessage) => {
+    // const name = avatarMaker(message.sender.username);
     return chat.people.map(
       (person, index) =>
         person.last_read === message.id && (
@@ -15,9 +17,17 @@ const ChatFeed = (props) => {
             className="read-receipt"
             style={{
               float: isMyMessage ? "right" : "left",
-              backgroundImage: `url(${peopleAvatar})`,
             }}
-          />
+          >
+            {/* <Avatar
+              style={{
+                backgroundColor: "lightskyblue",
+                fontSize: "14px",
+              }}
+            >
+              {name}
+            </Avatar> */}
+          </div>
         )
     );
   };
@@ -66,9 +76,7 @@ const ChatFeed = (props) => {
   return (
     <div className="chat-feed">
       <div className="chat-title">{chat.title}</div>
-      <div className="chat-subtitle">
-        {chat.people.map((person) => `${person.person.username}`)}
-      </div>
+
       {renderMessages()}
       <div style={{ height: "100px" }} />
       <div className="message-form-container">
